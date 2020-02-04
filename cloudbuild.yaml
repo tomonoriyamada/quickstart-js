@@ -15,4 +15,4 @@ steps:
   entrypoint: npm
   args: [ 'run', 'build.prod' ]
 - name: 'gcr.io/$PROJECT_ID/firebase'
-  args: [ 'deploy', '-P', '$PROJECT_ID', '--token', '$FIREBASE_TOKEN']
+  args: [ 'deploy', '-P', '$PROJECT_ID', '--token', '$_FIREBASE_TOKEN']
