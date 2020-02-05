@@ -15,20 +15,26 @@ steps:
 - name: 'gcr.io/$PROJECT_ID/firebase'
   args: [ 'deploy', '-P', '$_PROJECT_ID_DATABASE', '--token', '$_FIREBASE_TOKEN']
   dir: 'database'
+  waitFor: ['npm test']
 - name: 'gcr.io/$PROJECT_ID/firebase'
   args: [ 'deploy', '-P', '$_PROJECT_ID_FIRESTORE', '--token', '$_FIREBASE_TOKEN']
   dir: 'firestore'
+  waitFor: ['npm test']
 - name: 'gcr.io/$PROJECT_ID/firebase'
   args: [ 'deploy', '-P', '$_PROJECT_ID_FUNCTIONS', '--token', '$_FIREBASE_TOKEN']
   dir: 'functions'
+  waitFor: ['npm test']
 - name: 'gcr.io/$PROJECT_ID/firebase'
   args: [ 'deploy', '-P', '$_PROJECT_ID_MESSAGING', '--token', '$_FIREBASE_TOKEN']
   dir: 'messaging'
+  waitFor: ['npm test']
 - name: 'gcr.io/$PROJECT_ID/firebase'
   args: [ 'deploy', '-P', '$_PROJECT_ID_REMOTE_CONFIG', '--token', '$_FIREBASE_TOKEN']
   dir: 'remote-config'
+  waitFor: ['npm test']
 - name: 'gcr.io/$PROJECT_ID/firebase'
   args: [ 'deploy', '-P', '$_PROJECT_ID_STORAGE', '--token', '$_FIREBASE_TOKEN']
   dir: 'storage'
+  waitFor: ['npm test']
 images:
 - 'gcr.io/$PROJECT_ID/firebase'
