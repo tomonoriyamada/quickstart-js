@@ -1,10 +1,6 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: [ 'build', '-t', 'gcr.io/$PROJECT_ID/firebase', '.' ]
-images:
-- 'gcr.io/$PROJECT_ID/firebase'
-
-steps:
 - name: node:10.15.1
   entrypoint: npm
   args: [ 'install' ]
@@ -13,3 +9,6 @@ steps:
   args: [ 'test' ]
 - name: 'gcr.io/$PROJECT_ID/firebase'
   args: [ 'deploy', '-P', '$PROJECT_ID', '--token', '$_FIREBASE_TOKEN']
+
+images:
+- 'gcr.io/$PROJECT_ID/firebase'
