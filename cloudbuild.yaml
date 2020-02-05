@@ -8,7 +8,7 @@ steps:
   entrypoint: npm
   args: [ 'test' ]
 - name: 'gcr.io/$PROJECT_ID/firebase'
-  args: [ 'deploy', '-P', '$PROJECT_ID', '--token', '$_FIREBASE_TOKEN']
+  args: [ 'deploy', '-P', '$_PROJECT_ID', '--token', '$_FIREBASE_TOKEN']
   dir: 'auth'
 images:
 - 'gcr.io/$PROJECT_ID/firebase'
