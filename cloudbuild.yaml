@@ -23,7 +23,7 @@ steps:
   args: [ 'deploy', '-P', '$_PROJECT_ID_MESSAGING', '--token', '$_FIREBASE_TOKEN']
   dir: 'messaging'
 - name: 'gcr.io/$PROJECT_ID/firebase'
-  args: [ 'deploy', '-P', '$_PROJECT_ID_REMOTE-CONFIG', '--token', '$_FIREBASE_TOKEN']
+  args: [ 'deploy', '-P', '$_PROJECT_ID_REMOTE_CONFIG', '--token', '$_FIREBASE_TOKEN']
   dir: 'remote-config'
 - name: 'gcr.io/$PROJECT_ID/firebase'
   args: [ 'deploy', '-P', '$_PROJECT_ID_STORAGE', '--token', '$_FIREBASE_TOKEN']
