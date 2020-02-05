@@ -8,7 +8,25 @@ steps:
   entrypoint: npm
   args: [ 'test' ]
 - name: 'gcr.io/$PROJECT_ID/firebase'
-  args: [ 'deploy', '-P', '$_PROJECT_ID', '--token', '$_FIREBASE_TOKEN']
+  args: [ 'deploy', '-P', '$_PROJECT_ID_AUTH', '--token', '$_FIREBASE_TOKEN']
   dir: 'auth'
+- name: 'gcr.io/$PROJECT_ID/firebase'
+  args: [ 'deploy', '-P', '$_PROJECT_ID_DATABASE', '--token', '$_FIREBASE_TOKEN']
+  dir: 'database'
+- name: 'gcr.io/$PROJECT_ID/firebase'
+  args: [ 'deploy', '-P', '$_PROJECT_ID_FIRESTORE', '--token', '$_FIREBASE_TOKEN']
+  dir: 'firestore'
+- name: 'gcr.io/$PROJECT_ID/firebase'
+  args: [ 'deploy', '-P', '$_PROJECT_ID_FUNCTIONS', '--token', '$_FIREBASE_TOKEN']
+  dir: 'functions'
+- name: 'gcr.io/$PROJECT_ID/firebase'
+  args: [ 'deploy', '-P', '$_PROJECT_ID_MESSAGING', '--token', '$_FIREBASE_TOKEN']
+  dir: 'messaging'
+- name: 'gcr.io/$PROJECT_ID/firebase'
+  args: [ 'deploy', '-P', '$_PROJECT_ID_REMOTE-CONFIG', '--token', '$_FIREBASE_TOKEN']
+  dir: 'remote-config'
+- name: 'gcr.io/$PROJECT_ID/firebase'
+  args: [ 'deploy', '-P', '$_PROJECT_ID_STORAGE', '--token', '$_FIREBASE_TOKEN']
+  dir: 'storage'
 images:
 - 'gcr.io/$PROJECT_ID/firebase'
