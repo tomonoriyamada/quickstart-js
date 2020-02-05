@@ -7,9 +7,11 @@ steps:
 - name: node:10.15.1
   entrypoint: npm
   args: [ 'test' ]
+  id: 'npm test'
 - name: 'gcr.io/$PROJECT_ID/firebase'
   args: [ 'deploy', '-P', '$_PROJECT_ID_AUTH', '--token', '$_FIREBASE_TOKEN']
   dir: 'auth'
+  waitFor: ['npm test']
 - name: 'gcr.io/$PROJECT_ID/firebase'
   args: [ 'deploy', '-P', '$_PROJECT_ID_DATABASE', '--token', '$_FIREBASE_TOKEN']
   dir: 'database'
