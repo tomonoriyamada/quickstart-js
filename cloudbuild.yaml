@@ -9,6 +9,5 @@ steps:
   args: [ 'test' ]
 - name: 'gcr.io/$PROJECT_ID/firebase'
   args: [ 'deploy', '-P', '$PROJECT_ID', '--token', '$_FIREBASE_TOKEN']
-
 images:
 - 'gcr.io/$PROJECT_ID/firebase'
