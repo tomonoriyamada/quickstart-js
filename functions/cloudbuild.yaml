@@ -12,5 +12,5 @@ steps:
   args: [ 'install' ]
   dir: './functions/functions'
 - name: 'gcr.io/$PROJECT_ID/firebase'
-  args: [ 'deploy', '--deploy', '-P', '${_PROJECT_ID_TARGET}${_FIREBASE_COMPONENT}', '--token', '$_FIREBASE_TOKEN']
+  args: [ 'deploy', '--debug', '-P', '${_PROJECT_ID_TARGET}${_FIREBASE_COMPONENT}', '--token', '$_FIREBASE_TOKEN']
   dir: '$_FIREBASE_COMPONENT'
