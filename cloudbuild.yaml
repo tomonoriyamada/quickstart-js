@@ -7,30 +7,6 @@ steps:
 - name: node:10.15.1
   entrypoint: npm
   args: [ 'test' ]
-  id: 'npm test'
 - name: 'gcr.io/$PROJECT_ID/firebase'
-  args: [ 'deploy', '-P', '$_PROJECT_ID_AUTH', '--token', '$_FIREBASE_TOKEN']
-  dir: 'auth'
-  waitFor: ['npm test']
-- name: 'gcr.io/$PROJECT_ID/firebase'
-  args: [ 'deploy', '-P', '$_PROJECT_ID_DATABASE', '--token', '$_FIREBASE_TOKEN']
-  dir: 'database'
-  waitFor: ['npm test']
-- name: 'gcr.io/$PROJECT_ID/firebase'
-  args: [ 'deploy', '-P', '$_PROJECT_ID_FIRESTORE', '--token', '$_FIREBASE_TOKEN']
-  dir: 'firestore'
-  waitFor: ['npm test']
-- name: 'gcr.io/$PROJECT_ID/firebase'
-  args: [ 'deploy', '-P', '$_PROJECT_ID_FUNCTIONS', '--token', '$_FIREBASE_TOKEN']
-  dir: 'functions'
-  waitFor: ['npm test']
-- name: 'gcr.io/$PROJECT_ID/firebase'
-  args: [ 'deploy', '-P', '$_PROJECT_ID_MESSAGING', '--token', '$_FIREBASE_TOKEN']
-  dir: 'messaging'
-  waitFor: ['npm test']
-- name: 'gcr.io/$PROJECT_ID/firebase'
-  args: [ 'deploy', '-P', '$_PROJECT_ID_REMOTE_CONFIG', '--token', '$_FIREBASE_TOKEN']
-  dir: 'remote-config'
-  waitFor: ['npm test']
-images:
-- 'gcr.io/$PROJECT_ID/firebase'
+  args: [ 'deploy', '--debug', '-P', '${_PROJECT_ID_TARGET}${_FIREBASE_COMPONENT}', '--token', '$_FIREBASE_TOKEN']
+  dir: '$_FIREBASE_COMPONENT'
