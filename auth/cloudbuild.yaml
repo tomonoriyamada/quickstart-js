@@ -8,5 +8,5 @@ steps:
   entrypoint: npm
   args: [ 'test' ]
 - name: 'gcr.io/$PROJECT_ID/firebase'
-  args: [ 'deploy', '-P', '${_PROJECT_ID_TARGET}${_FIREBASE_COMPONENT}']
+  args: [ 'deploy', '-P', '${_PROJECT_ID_TARGET}${_FIREBASE_COMPONENT}', '--token', '$_FIREBASE_TOKEN']
   dir: '$_FIREBASE_COMPONENT'
