@@ -70,6 +70,8 @@ limitations under the License.
      *    out, and that is where we update the UI.
      */
     function initApp() {
+      firebase.analytics().logEvent('initApp');
+
       // Listening for auth state changes.
       // [START authstatelistener]
       firebase.auth().onAuthStateChanged(function(user) {
